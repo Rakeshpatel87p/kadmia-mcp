@@ -26,11 +26,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kadmia/kadmia-mcp.git"
+    "url": "git+https://github.com/rakeshpatel87p/kadmia-mcp.git"
   },
-  "homepage": "https://github.com/kadmia/kadmia-mcp#readme",
+  "homepage": "https://github.com/rakeshpatel87p/kadmia-mcp#readme",
   "bugs": {
-    "url": "https://github.com/kadmia/kadmia-mcp/issues"
+    "url": "https://github.com/rakeshpatel87p/kadmia-mcp/issues"
   },
   "license": "MIT",
   "author": "Kadmia",
