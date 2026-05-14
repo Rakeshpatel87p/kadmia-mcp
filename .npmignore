@@ -1,0 +1,39 @@
+# Source files (dist is published instead)
+src/
+
+# TypeScript config
+tsconfig.json
+
+# Development files
+.env
+.env.*
+*.log
+
+# Editor and IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Documentation (keep README, exclude others)
+CLAUDE.md
+DEPLOY.md
+
+# Git
+.git/
+.gitignore
+
+# npm
+node_modules/
+package-lock.json
+
+# Testing
+coverage/
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Misc
+*.tgz
+.npmrc
