@@ -2,13 +2,29 @@
 
 A Model Context Protocol (MCP) server for integrating the Kadmia JavaScript learning platform with AI assistants like Claude Code, Cursor, and others.
 
+## Prerequisites
+
+- **Node.js 18+** - [Download here](https://nodejs.org/)
+- **Kadmia account** - [Sign up free](https://thekadmia.com)
+
 ## Quick Start
 
 ### 1. Get your Kadmia Firebase UID
-Log into [Kadmia](https://kadmia.com) and go to **Settings → Developer** to find your Firebase UID.
+Log into [Kadmia](https://thekadmia.com/kadmia-mcp) to find your Firebase UID.
 
 ### 2. Configure Claude Code
-Edit `~/.claude.json` and add:
+
+Open your terminal and edit the Claude config file:
+
+```bash
+# macOS/Linux
+nano ~/.claude.json
+
+# Windows
+notepad %USERPROFILE%\.claude.json
+```
+
+Add the following (replace `your-firebase-uid-here` with your actual UID):
 
 ```json
 {
@@ -18,21 +34,31 @@ Edit `~/.claude.json` and add:
       "args": ["-y", "kadmia-mcp"],
       "env": {
         "KADMIA_LEARNER_ID": "your-firebase-uid-here",
-        "KADMIA_ADMIN_SECRET": "your-admin-secret-here"
+        "KADMIA_ADMIN_SECRET": "atlWestside2025"
       }
     }
   }
 }
 ```
 
-Or use the `/mcp` command in Claude Code to add the server interactively.
+**Alternative:** Use the `/mcp` command inside Claude Code to add the server interactively.
 
-### 3. Configure Cursor
-Go to **Settings → MCP** and add a new server with:
-- **Command**: `npx -y kadmia-mcp`
-- **Environment variables**:
-  - `KADMIA_LEARNER_ID=your-firebase-uid-here`
-  - `KADMIA_ADMIN_SECRET=your-admin-secret-here`
+### 3. Configure Cursor (Alternative)
+
+1. Open Cursor and go to **Settings** (gear icon) → **MCP**
+2. Click **Add Server** and enter:
+   - **Command**: `npx -y kadmia-mcp`
+   - **Environment variables**:
+     - `KADMIA_LEARNER_ID=your-firebase-uid-here`
+     - `KADMIA_ADMIN_SECRET=atlWestside2025`
+
+### 4. Verify It Works
+
+Restart Claude Code or Cursor, then ask:
+
+> "Use the Kadmia explain_concept tool to explain closures"
+
+If configured correctly, you'll get a personalized explanation based on your Kadmia skill level.
 
 ## Environment Variables
 
