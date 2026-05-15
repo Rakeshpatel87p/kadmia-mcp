@@ -9,8 +9,8 @@ A Model Context Protocol (MCP) server for integrating the Kadmia JavaScript lear
 
 ## Quick Start
 
-### 1. Get your Kadmia Firebase UID
-Log into [Kadmia](https://thekadmia.com/kadmia-mcp) to find your Firebase UID.
+### 1. Get your Kadmia credentials
+Log into [Kadmia](https://thekadmia.com/kadmia-mcp) to get your **Firebase UID** and **API Key**.
 
 ### 2. Configure Claude Code
 
@@ -24,7 +24,7 @@ nano ~/.claude.json
 notepad %USERPROFILE%\.claude.json
 ```
 
-Add the following (replace `your-firebase-uid-here` with your actual UID):
+Add the following (replace the placeholder values with your credentials from Kadmia):
 
 ```json
 {
@@ -34,7 +34,7 @@ Add the following (replace `your-firebase-uid-here` with your actual UID):
       "args": ["-y", "kadmia-mcp"],
       "env": {
         "KADMIA_LEARNER_ID": "your-firebase-uid-here",
-        "KADMIA_ADMIN_SECRET": "atlWestside2025"
+        "KADMIA_API_KEY": "your-api-key-here"
       }
     }
   }
@@ -50,7 +50,7 @@ Add the following (replace `your-firebase-uid-here` with your actual UID):
    - **Command**: `npx -y kadmia-mcp`
    - **Environment variables**:
      - `KADMIA_LEARNER_ID=your-firebase-uid-here`
-     - `KADMIA_ADMIN_SECRET=atlWestside2025`
+     - `KADMIA_API_KEY=your-api-key-here`
 
 ### 4. Verify It Works
 
@@ -64,9 +64,9 @@ If configured correctly, you'll get a personalized explanation based on your Kad
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `KADMIA_LEARNER_ID` | Yes | Your Firebase UID from Kadmia Settings → Developer |
-| `KADMIA_ADMIN_SECRET` | Yes | Admin secret for API authentication |
-| `KADMIA_API_BASE` | No | API base URL (default: Kadmia production API) |
+| `KADMIA_LEARNER_ID` | Yes | Your Firebase UID from [thekadmia.com/kadmia-mcp](https://thekadmia.com/kadmia-mcp) |
+| `KADMIA_API_KEY` | Yes | Your API key from [thekadmia.com/kadmia-mcp](https://thekadmia.com/kadmia-mcp) |
+| `KADMIA_API_BASE` | No | API base URL (default: Kadmia staging API) |
 
 ## Available Tools
 
@@ -112,6 +112,7 @@ The Kadmia MCP server creates a bridge between your coding environment and the K
 
 - `bookmark_concept` — Save concepts to study later in the Kadmia app
 - `generate_challenge` — Get coding challenges calibrated to your skill level
+- `js_comedy_hour` — Hear the JS joke of the day
 
 ## Development
 
