@@ -1,7 +1,6 @@
 // Tool exports and registration helper
 
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { helloTool } from "./hello.js";
 import { progressTool } from "./progress.js";
 import { bookmarkTool } from "./bookmark.js";
 import { challengeTool } from "./challenge.js";
@@ -42,13 +41,6 @@ function withUsageTracking<T, R>(
 
 // Register all tools with the MCP server
 export function registerAllTools(server: McpServer): void {
-  // Register hello tool
-  server.registerTool(
-    helloTool.name,
-    helloTool.config,
-    withUsageTracking(helloTool.name, helloTool.handler)
-  );
-
   // Register progress tool
   server.registerTool(
     progressTool.name,
