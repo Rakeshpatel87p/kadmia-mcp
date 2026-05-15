@@ -19,7 +19,8 @@ function createErrorResponse(message: string) {
 export const progressTool = {
   name: "get_learner_progress",
   config: {
-    description: "Get your learning progress from Kadmia (requires authentication via KADMIA_LEARNER_ID env var)",
+    description:
+      "Get your learning progress from Kadmia (requires authentication via KADMIA_LEARNER_ID env var)",
     inputSchema: {},
   },
   handler: async () => {
@@ -41,7 +42,9 @@ export const progressTool = {
         ],
       };
     } catch (error) {
-      return createErrorResponse(`Kadmia API error: ${(error as Error).message}`);
+      return createErrorResponse(
+        `Kadmia API error: ${(error as Error).message}`,
+      );
     }
   },
 };

@@ -2,7 +2,7 @@
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { LEARNER_ID } from "./config.js";
+import { LEARNER_ID, API_KEY } from "./config.js";
 import { registerAllTools } from "./tools/index.js";
 
 // Create the MCP server
@@ -19,8 +19,10 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   console.error("Kadmia MCP server running on stdio");
+  console.error(`API_KEY: ${API_KEY ? "SET" : "NOT SET"}`);
+  console.error(`LEARNER_ID: ${LEARNER_ID ? "SET" : "NOT SET"}`);
   if (LEARNER_ID) {
-    console.error(`Authenticated as learner: ${LEARNER_ID}`);
+    console.error(`Authenticated as learner`);
   } else {
     console.error("Warning: KADMIA_LEARNER_ID not set. Tools requiring authentication will fail.");
   }
