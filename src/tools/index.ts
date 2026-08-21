@@ -39,33 +39,21 @@ function withUsageTracking<T, R>(
   };
 }
 
+// Tool configuration
+const tools = [
+  progressTool,
+  bookmarkTool,
+  challengeTool,
+  explainTool,
+] as const;
+
 // Register all tools with the MCP server
 export function registerAllTools(server: McpServer): void {
-  // Register progress tool
-  server.registerTool(
-    progressTool.name,
-    progressTool.config,
-    withUsageTracking(progressTool.name, progressTool.handler)
-  );
-
-  // Register bookmark tool
-  server.registerTool(
-    bookmarkTool.name,
-    bookmarkTool.config,
-    withUsageTracking(bookmarkTool.name, bookmarkTool.handler)
-  );
-
-  // Register challenge tool
-  server.registerTool(
-    challengeTool.name,
-    challengeTool.config,
-    withUsageTracking(challengeTool.name, challengeTool.handler)
-  );
-
-  // Register explain tool
-  server.registerTool(
-    explainTool.name,
-    explainTool.config,
-    withUsageTracking(explainTool.name, explainTool.handler)
-  );
+  tools.forEach((tool) => {
+    server.registerTool(
+      tool.name,
+      tool.config,
+      withUsageTracking(tool.name, tool.handler as any)
+    );
+  });
 }
